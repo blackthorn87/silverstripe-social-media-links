@@ -38,14 +38,22 @@ if (!class_exists('SocialMediaLink')) {
 		
 		private static $summary_fields = array (
 			
-			'Title' => 'The Title',
-			'FontAwesomeIcon' => 'The Icon',
-			'sLink' => 'The Link',
-			//'Icon.getFilename',
-			'isActive' => 'Active State'
+			'Title' 					=> 'Title',
+			'FontAwesomeIcon' 			=> 'Icon',
+			'sLink' 					=> 'Link',
+			'ActiveState' 				=> 'Active'
 		
 		);
+
+		private static $casting = array (
+			'ActiveState'				=> 'Text'
+		);
+
+		public function ActiveState() {
+			return $this->isActive ? 'Yes' : 'No';
+		}
 		
+		// set the Title field to the Name
 		public function getTitle() {
 			
 			return $this->Name;
