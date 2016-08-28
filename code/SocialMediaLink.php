@@ -38,11 +38,11 @@ if (!class_exists('SocialMediaLink')) {
 		
 		private static $summary_fields = array (
 			
-			'Title',
-			'FontAwesomeIcon',
-			'Link' => 'sLink',
+			'Title' => 'The Title',
+			'FontAwesomeIcon' => 'The Icon',
+			'sLink' => 'The Link',
 			//'Icon.getFilename',
-			'isActive'
+			'isActive' => 'Active State'
 		
 		);
 		
