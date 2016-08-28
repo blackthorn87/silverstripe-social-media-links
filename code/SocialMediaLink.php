@@ -16,6 +16,7 @@ if (!class_exists('SocialMediaLink')) {
 			'FontAwesomeIcon'			=> 'Enum("fa-behance, fa-behance-square, fa-bitbucket, fa-bitbucket-square, fa-delicious, fa-deviantart, fa-digg, fa-dribbble, fa-facebook, fa-facebook-square, fa-git, fa-git-square, fa-github, fa-github-alt, fa-github-square, fa-google, fa-google-plus, fa-google-plus-square, fa-linkedin, fa-linkedin-square, fa-skype, fa-steam, fa-steam-square, fa-trello, fa-tumblr, fa-tumblr-square, fa-twitch, fa-twitter, fa-twitter-square, fa-vimeo-square, fa-vine, fa-youtube, fa-youtube-play, fa-youtube-square","fa-facebook")',
 			'sLink'						=> 'Varchar(255)',
 			'isActive'					=> 'Boolean',
+			'openInNew'					=> 'Boolean',
 			'Sort'						=> 'Int'
 		
 		);
@@ -31,6 +32,7 @@ if (!class_exists('SocialMediaLink')) {
 			'Name'						=> 'New Social Media Link',
 			'FontAwesomeIcon'			=> 'fa-facebook',
 			'sLink'						=> '[copy the link of your social media page and paste it here]',
+			'openInNew'					=> true,
 			'isActive'					=> true,
 			'Sort'						=> 50
 		
@@ -41,17 +43,23 @@ if (!class_exists('SocialMediaLink')) {
 			'Title' 					=> 'Title',
 			'FontAwesomeIcon' 			=> 'Icon',
 			'sLink' 					=> 'Link',
+			'OpenInNewWindow' 			=> 'Open in New Window',
 			'ActiveState' 				=> 'Active',
 			'Sort'						=> 'Sort Order'
 		
 		);
 
 		private static $casting = array (
-			'ActiveState'				=> 'Text'
+			'ActiveState'				=> 'Text',
+			'OpenInNewWindow'			=> 'Text'
 		);
 
 		public function ActiveState() {
 			return $this->isActive ? 'Yes' : 'No';
+		}
+
+		public function OpenInNewWindow() {
+			return $this->openInNew ? 'Yes' : 'No';
 		}
 		
 		// set the Title field to the Name
@@ -77,6 +85,7 @@ if (!class_exists('SocialMediaLink')) {
 						->setAllowedFileCategories('image')
 						->setFolderName('Uploads/Social-Logos'),
 					TextField::create('sLink')->setTitle('Link'),
+					CheckBoxField::create('openInNew')->setTitle('Open in New Tab'),
 					CheckBoxField::create('isActive')->setTitle('Enable Link'),
 					TextField::create('Sort')->setTitle('Sort Order'),
 				)
@@ -85,9 +94,14 @@ if (!class_exists('SocialMediaLink')) {
 			return $fields;
 		}
 
-		public function faIcon() {
-
+		public function faIcon()
+		{
 			return "<i class=\"fa " . $this->FontAwesomeIcon . "\"></i>";
+		}
+
+		public function targetDestination()
+		{
+			return $this->openInNew ? " target=\"_blank\"" : "";
 		}
 	}
 }
