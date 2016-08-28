@@ -40,7 +40,7 @@ if (!class_exists('SocialMediaLink')) {
 			
 			'Title',
 			'FontAwesomeIcon',
-			'sLink',
+			'sLink' => 'Link',
 			//'Icon.getFilename',
 			'isActive'
 		
