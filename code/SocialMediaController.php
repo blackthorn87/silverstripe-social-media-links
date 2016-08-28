@@ -11,6 +11,8 @@ if (!class_exists('SocialMediaController'))
 
 			return SocialMediaLink::get()->filter(array(
 				'isActive' 		=> 1
+			))->sort(array(
+				'Sort'			=> 'ASC'
 			));
 
 		}
