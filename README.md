@@ -2,6 +2,8 @@
 
 Allows the creation of social media links for output on the site.
 
+### Requirements
+
 You will require font-awesome included in your project.
 
 ```[insert code]```
