@@ -34,7 +34,7 @@ if (!class_exists('SocialMediaConfig'))
 						)
 					)
 				)->setHeadingLevel(4)->setStartClosed(true)
-			)
+			);
 		}
 
 	}
