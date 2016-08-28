@@ -41,7 +41,8 @@ if (!class_exists('SocialMediaLink')) {
 			'Title' 					=> 'Title',
 			'FontAwesomeIcon' 			=> 'Icon',
 			'sLink' 					=> 'Link',
-			'ActiveState' 				=> 'Active'
+			'ActiveState' 				=> 'Active',
+			'Sort'						=> 'Sort Order'
 		
 		);
 
