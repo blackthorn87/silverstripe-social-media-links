@@ -76,9 +76,9 @@ if (!class_exists('SocialMediaLink')) {
 			return $fields;
 		}
 
-		public function faIcon($ico = $this->FontAwesomeIcon) {
+		public function faIcon() {
 
-			return "<i class=\"fa " . $ico . "\"></i>";
+			return "<i class=\"fa " . $this->FontAwesomeIcon . "\"></i>";
 		}
 	}
 }
